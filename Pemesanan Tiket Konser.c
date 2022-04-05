@@ -4,13 +4,22 @@
 
 int main()
 { 
-  int contoh[10], i, j;
-  printf("masukan jumblah contoh : ");
-  scanf("%d", &contoh);
-  for(i=1: i>=contoh; i++){
-  printf("contoh %d =", contoh);
-    scanf("%d",&j);
-  };
+  awal:
+     printf("\n");
+     printf("\t=====[ DAFTAR TIKET KONSER BLINK-182 ]=====\n\n");
+     printf("\t____________________________________________\n");
+     printf("\t|   Kode Kelas   |    Kelas    |   Harga   |\n");
+     printf("\t|       1        |   VVIP      | 1.000.000 |\n");
+     printf("\t|       2        |   VIP       | 800.000   |\n");
+     printf("\t|       3        |   D-PANGUNG | 500.000   |\n");
+     printf("\t|       4        |   BIASA     | 300.000   |\n");
+     printf("\t|________________|_____________|_______(Rp)|\n");
+     printf("\n");
+     printf("\n\tMasukan Nama Pembeli   : ");
+     scanf("%d", &nama);
+     printf("/tMasukan Banyak Kelas : ");
+     scanf("%d", n);
+     
   return 0;
 }
 
