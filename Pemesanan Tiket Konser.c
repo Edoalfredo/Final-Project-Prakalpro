@@ -19,7 +19,12 @@ int main()
      scanf("%d", &nama);
      printf("/tMasukan Banyak Kelas : ");
      scanf("%d", n);
-     
+     printf("\n\t________________________\n");
+     for(i=1; i<=n; i++){
+         printf("\n\tpembelian Tiket ke-%d\n\n", i);
+         kode:
+         printf("\tkode kelas\t: ");
+         scanf("%d",&kode[i]);
   return 0;
 }
 
