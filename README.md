@@ -6,4 +6,4 @@
 2108561107	I Made Ryan Prana Dhita
 2108561053	Gde Krishna Sankya Yogeswara
 
-bisa bisa do
+kontol
