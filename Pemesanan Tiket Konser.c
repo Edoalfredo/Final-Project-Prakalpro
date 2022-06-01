@@ -7,6 +7,8 @@
 #define stage2 500000
 #define stage3 300000
 
+FILE *ptr;
+
 struct node
 {
   char nama[30];
@@ -22,6 +24,7 @@ struct node *head = NULL, *temp, *temp1, *temp2;
 int kode = 1;
 void create_tiket(char nama[])
 {
+  ptr=fopen("data_tiket.txt", "a");
   int kembalian;
   int bayar;
   struct tm *Sya_T;                                    
@@ -43,12 +46,15 @@ void create_tiket(char nama[])
      printf("\n");
   printf("\n\tPilih Stage Tiket \t: ");
   scanf("%i", &pil);
+  fprintf(ptr,"Stage : %i",pil);
   temp->stage = pil;
   printf("\tJumlah tiket dipesan \t: ");
   scanf("%i", &jum);
+  fprintf(ptr,"\nJumlah Tiket : %i\n\n", jum);
   temp->jumlah = jum;
   temp->biaya = total_uang(pil,jum);
   strcpy(temp->nama,nama);
+  fclose(ptr);
   temp->kode= kode;
   kode++;
   printf("\tTotal biaya \t\t: Rp. %i ", temp->biaya);
@@ -182,6 +188,9 @@ int main()
     printf("=========================\n");
     printf("Masukan Nama Anda : ");
     fgets(nama, sizeof(nama), stdin);
+    ptr=fopen("data_tiket.txt", "a");
+    fprintf(ptr, "Nama : %s", nama);
+    fclose(ptr);
     pesan_tiket(nama);
     printf("\nTekan 1 untuk kembali ke menu utama :");
     scanf("%i", &pil);
