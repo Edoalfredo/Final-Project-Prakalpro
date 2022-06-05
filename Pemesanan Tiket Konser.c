@@ -8,6 +8,48 @@
 #define stage3 300000
 
 FILE *ptr;
+char txt[128];
+void add_data()
+{
+    FILE* f = fopen("data.txt","a");
+    printf("Nama\t: ");
+    fflush(stdin);fgets(txt,128,stdin);
+    fputs(txt,f);
+    printf("Stage\t: ");
+    fflush(stdin);fgets(txt,128,stdin);
+    fputs(txt,f);
+    printf("Jumlah\t: ");
+    fflush(stdin);fgets(txt,128,stdin);
+    fputs(txt,f);
+    printf("Biaya\t: ");
+    fflush(stdin);fgets(txt,128,stdin);
+    fputs(txt,f);
+    printf("Kode\t: ");
+    fflush(stdin);fgets(txt,128,stdin);
+    fputs(txt,f);
+    fclose(f);
+}
+
+void read_data()
+{
+    FILE *f = fopen("data.txt","r");
+    short c=-1,m=1;
+    while(fgets(txt,128,f)!=NULL)
+    {
+        ++c;
+        if(c==0)
+        {
+            printf("Nama Pembeli ke-%d\n",m);
+            printf("Kode\t: %s",txt);
+            ++m;
+        }
+        if(c==1)printf("Nama\t: %s",txt);
+        if(c==2)printf("Stage\t: %s",txt);
+        if(c==3)printf("Jumlah\t: %s",txt);
+        if(c==4){printf("Kode\t: %s",txt);c=-1;}
+    }
+    fclose(f);
+}
 
 struct node
 {
@@ -22,6 +64,28 @@ struct node
 typedef struct node tiket;
 struct node *head = NULL, *temp, *temp1, *temp2;
 int kode = 1;
+int total_uang(int pil, int jum)
+{
+  int total_bayar;
+  if(pil==1)
+  {
+    total_bayar=vip*jum;
+  }
+  else if(pil==2)
+  {
+    total_bayar=stage1*jum;
+  }
+  else if(pil==3)
+  {
+    total_bayar=stage2*jum;
+  }
+    if(pil==4)
+  {
+    total_bayar=stage3*jum;
+  }
+  return total_bayar;
+}
+
 void create_tiket(char nama[])
 {
   ptr=fopen("data_tiket.txt", "a");
@@ -107,27 +171,7 @@ void pesan_tiket(char nama[])
     head=temp;
   }
 }
-int total_uang(int pil, int jum)
-{
-  int total_bayar;
-  if(pil==1)
-  {
-    total_bayar=vip*jum;
-  }
-  else if(pil==2)
-  {
-    total_bayar=stage1*jum;
-  }
-  else if(pil==3)
-  {
-    total_bayar=stage2*jum;
-  }
-    if(pil==4)
-  {
-    total_bayar=stage3*jum;
-  }
-  return total_bayar;
-}
+
 void cek_tiket()
 {
 struct node *curr = head;
