@@ -220,8 +220,10 @@ int main()
   char nama[30];
   menu:
   system("cls");
-  printf("1. Pesan Tiket\n2. Cari Tiket Anda\n3. daftar pesanan\n4. keluar\n");
-  printf("Masukan Pilihan : ");
+  printf("\t=====[ MENU DAFTAR TIKET ]=====\n\n");
+  printf("\t1. Pesan Tiket\n\t2. Cari Tiket Anda\n\t3. daftar pesanan\n\t4. keluar\n");
+  printf("\t===============================\n");
+  printf("\tMasukan Pilihan : ");
   scanf("%i", &pilihan);
   switch (pilihan)
   {
